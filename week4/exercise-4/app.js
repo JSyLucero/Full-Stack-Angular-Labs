@@ -8,31 +8,34 @@ const server = http.createServer((req, res) => {
   if (req.url == '/') {
     res.statusCode = 200;
     res.setHeader('Content-Type', 'application/json');
-    res.end('No data found\n');
+    res.end(JSON.stringify('No data found'));
   }
   
   else if (req.url == '/api/favoritebook') {
     res.statusCode = 200;
     res.setHeader('Content-Type', 'application/json');
-    res.end(`Favorite Book: ${store.booksModule.favoriteBook()}\n`);
+    let favoritebook = store.booksModule.favoriteBook();
+    res.end(JSON.stringify(`Favorite Book: ${favoritebook.title} - Author: ${favoritebook.author}`));
   }
 
   else if (req.url == '/api/getbooks') {
     res.statusCode = 200;
     res.setHeader('Content-Type', 'application/json');
-    res.end(`Favorite Book: ${store.booksModule.favoriteAuthor()}\n`);
+    let books = store.booksModule.getBookRecommendations();
+    res.end(JSON.stringify(books));
   }
 
   else if (req.url == '/api/getvideos') {
     res.statusCode = 200;
     res.setHeader('Content-Type', 'application/json');
-    res.end('No data found\n');
+    let videos = store.videosModule.getVideoRecommendations();
+    res.end(JSON.stringify(videos));
   }
 
   else {
     res.statusCode = 404;
     res.setHeader('Content-Type', 'application/json');
-    res.end('Error');
+    res.end(JSON.stringify('Error'));
   }
 });
 
