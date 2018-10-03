@@ -10,31 +10,25 @@ describe("Calculator", () => {
     it("should add two numbers correctly", () => {
       calc.AddTwoNumbers(2, 2).should.equal(4);
     });
-  
-  });
 
-  describe("when used synchronously", () => {
-
-    it("should add two numbers correctly", () => {
+    it("should add two numbers and not equal", () => {
       calc.AddTwoNumbers(2, 2).should.not.equal(0);
     });
-  
-  });
 
-  describe("when used synchronously", () => {
+    it("should throw an error", () => {
+      (() => { calc.AddTwoNumbers(2, "a") }).should.throw();
+    });
 
     it("should subtract two numbers correctly", () => {
       calc.SubtractTwoNumbers(2, 2).should.equal(0);
     });
-  
-  });
 
-  describe("when used synchronously", () => {
-
-    it("should subtract two numbers correctly", () => {
+    it("should subtract two numbers and not equal", () => {
       calc.SubtractTwoNumbers(2, 2).should.not.equal(4);
     });
-  
+    
+    it("should throw an error", () => {
+      (() => { calc.SubtractTwoNumbers(2, "a") }).should.throw();
+    });
   });
-
 });
