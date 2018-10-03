@@ -2,14 +2,14 @@ const favoriteDirector = { name: "James Camerson", genre: "Science Fiction", nat
 
 // returns the favorite book
 function favoriteVideo() {  
-    return { title: "Terminator", author: "James Cameron" };
+    return { title: "Terminator", director: "James Cameron" };
 }
 
 // returns a list of good books
 function getVideoRecommendations() {  
     return [
-        {id: 1, title: "Terminator", author: "James Cameron"},
-        {id: 2, title: "Aliens", author: "Jamers Cameron"}
+        {id: 1, title: "Terminator", director: "James Cameron"},
+        {id: 2, title: "Aliens", director: "Jamers Cameron"}
     ];
 }
 
