@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Hero } from '..//hero';
-import { HEROES } from '../mock-heroes';
+import { Hero } from '../hero';
+import { HeroService } from '../hero.service';
 import { RemoveSpacesPipe } from '../remove-spaces.pipe';
 
 @Component({
@@ -10,13 +10,20 @@ import { RemoveSpacesPipe } from '../remove-spaces.pipe';
   providers: [ RemoveSpacesPipe ]
 })
 export class HeroesComponent implements OnInit {
-  heroes = HEROES;
+  heroes = null;
   selectedHero: Hero;
   onSelect(hero: Hero): void {
     this.selectedHero = hero;
   }
 
-  constructor(private removeSpaces: RemoveSpacesPipe) { }
+  constructor(private heroService: HeroService, private removeSpaces: RemoveSpacesPipe) { }
 
-  ngOnInit() { }
+  ngOnInit() { 
+    this.getHeroes();
+  }
+
+  getHeroes(): void {
+    this.heroService.getHeroes()
+      .subscribe(heroes => this.heroes = heroes);
+  }
 }

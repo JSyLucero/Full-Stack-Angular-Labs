@@ -7,6 +7,9 @@ import { HeroesComponent } from './heroes/heroes.component';
 import { RemoveSpacesPipe } from './remove-spaces.pipe';
 import { InputFormatDirective } from './input-format.directive';
 import { HeroDetailComponent } from './hero-detail/hero-detail.component';
+import { MessagesComponent } from './messages/messages.component';
+import { PostComponent } from './post/post.component';
+import { HttpModule } from '@angular/http';
 
 @NgModule({
   declarations: [
@@ -14,12 +17,15 @@ import { HeroDetailComponent } from './hero-detail/hero-detail.component';
     HeroesComponent,
     RemoveSpacesPipe,
     InputFormatDirective,
-    HeroDetailComponent
+    HeroDetailComponent,
+    MessagesComponent,
+    PostComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpModule
   ],
   providers: [],
   bootstrap: [AppComponent]
